@@ -2,6 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ToggleGroup?>
 
 <AnchorPane  fx:controller="gui_javafx_mvc.MainWindowController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
     <!-- Panel 1: Display the main label -->
@@ -18,14 +19,17 @@
     <VBox layoutX="10" layoutY="90">
         <TextField fx:id="inputField" prefWidth="380" />
     </VBox>
-
+    <fx:define>
+        <ToggleGroup fx:id="terms"/>
+    </fx:define>
     <!-- Panel 4: Radio buttons for selecting the desired calculation -->
     <VBox layoutX="10" layoutY="130" spacing="5">
-        <RadioButton fx:id="totalRadioButton" text="Total"/>
-        <RadioButton fx:id="averageRadioButton" text="Average"/>
-        <RadioButton fx:id="maxRadioButton" text="Maximum"/>
-        <RadioButton fx:id="minRadioButton" text="Minimum"/>
+        <RadioButton fx:id="totalRadioButton" text="Total" toggleGroup="$terms" selected="true"/>
+        <RadioButton fx:id="averageRadioButton" text="Average" toggleGroup="$terms"/>
+        <RadioButton fx:id="maxRadioButton" text="Maximum" toggleGroup="$terms"/>
+        <RadioButton fx:id="minRadioButton" text="Minimum" toggleGroup="$terms"/>
     </VBox>
+
 
     <!-- Panel 5: Button for initiating the calculation -->
     <VBox layoutX="10" layoutY="213">
